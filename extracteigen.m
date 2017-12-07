@@ -1,6 +1,6 @@
 clc
 clear all
-addpath(genpath('E:/E盘/预测低血容量/加入GCS等参数'))
+addpath(genpath('F:\Githubcode\加入GCS等参数'))
 
 %该程序的主要流程为：加载数据、去除异常数据、提取特征值、特征值筛选、神经网络
 
@@ -8,12 +8,12 @@ addpath(genpath('E:/E盘/预测低血容量/加入GCS等参数'))
 final_eigen=zeros(919,87);%所有训练集测试集数据共358例
 final_eigen(1:513,end)=1;
 final_eigen(514:end,end)=0;
-
+label=final_eigen(:,end);
 
 %% 加载数据
 threshhold=[250,200,200,200,200,100,100];
 
-pathname3='E:/E盘/预测低血容量/加入GCS等参数/AHE';
+pathname3='F:\Githubcode\加入GCS等参数/AHE';
 cd(pathname3);
 FileList=dir;
 AHEpath='D:/Available/already/'
@@ -57,7 +57,7 @@ for i=1:length(FileList)
 end
 cd ..
 
-pathname4='E:/E盘/预测低血容量/加入GCS等参数/nonAHE';
+pathname4='F:\Githubcode\加入GCS等参数/nonAHE';
 cd(pathname4);
 nonAHEpath='D:/Available/already/'
 FileList=dir;
